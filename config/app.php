@@ -179,7 +179,7 @@ return [
         /**
          * 七牛存储
          */
-        zgldh\QiniuStorage\QiniuFilesystemServiceProvider,
+        zgldh\QiniuStorage\QiniuFilesystemServiceProvider::class,
     ],
 
     /*

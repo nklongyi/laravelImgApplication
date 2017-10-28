@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Gentelella Alela! | </title>
+    <title>管理平台 |@yield('title') </title>
 
     <!-- Bootstrap -->
     <link href="{{asset('admin/vendors/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -27,6 +27,12 @@
 
     <!-- Custom Theme Style -->
     <link href="{{asset('admin/build/css/custom.min.css')}}" rel="stylesheet">
+    <!-- jQuery -->
+    <script src="{{asset('admin/vendors/jquery/dist/jquery.min.js')}}"></script>
+    <!-- Bootstrap -->
+    <script src="{{asset('admin/vendors/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+
+    @yield('cssandjs')
 </head>
 
 <body class="nav-md">
@@ -192,10 +198,8 @@
     </div>
 </div>
 
-<!-- jQuery -->
-<script src="{{asset('admin/vendors/jquery/dist/jquery.min.js')}}"></script>
-<!-- Bootstrap -->
-<script src="{{asset('admin/vendors/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+
+
 <!-- FastClick -->
 <script src="{{asset('admin/vendors/fastclick/lib/fastclick.js')}}"></script>
 <!-- NProgress -->
@@ -233,5 +237,6 @@
 <!-- Custom Theme Scripts -->
 <script src="{{asset('admin/build/js/custom.min.js')}}"></script>
 
+@yield('customerJs')
 </body>
 </html>

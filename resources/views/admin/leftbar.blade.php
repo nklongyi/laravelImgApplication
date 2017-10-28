@@ -5,7 +5,7 @@
             <li><a><i class="fa fa-home"></i> 图片主题库 <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
                     <li><a href="index.html">图片主题列表</a></li>
-                    <li><a href="index2.html">添加图片库</a></li>
+                    <li><a href="{{url('/admin/addItem')}}">添加图片库</a></li>
                     <li><a href="index.html">草稿箱</a></li>
                 </ul>
             </li>
