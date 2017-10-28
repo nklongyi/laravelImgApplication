@@ -66,7 +66,7 @@ return [
             'driver'  => 'qiniu',
             'domains' => [
                 'default'   => 'xxxxx.com1.z0.glb.clouddn.com', //你的七牛域名
-                'https'     => 'dn-yourdomain.qbox.me',         //你的HTTPS域名
+                'https'     => 'dn-yourdomain.qbox.meeeee',         //你的HTTPS域名
                 'custom'    => 'static.abc.com',                //Useless 没啥用，请直接使用上面的 default 项
             ],
             'access_key'=> '',  //AccessKey
