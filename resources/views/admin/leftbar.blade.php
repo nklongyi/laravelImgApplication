@@ -6,6 +6,7 @@
                 <ul class="nav child_menu">
                     <li><a href="index.html">图片主题列表</a></li>
                     <li><a href="index2.html">添加图片库</a></li>
+                    <li><a href="index.html">草稿箱</a></li>
                 </ul>
             </li>
             <li><a><i class="fa fa-edit"></i> 分类管理 <span class="fa fa-chevron-down"></span></a>
