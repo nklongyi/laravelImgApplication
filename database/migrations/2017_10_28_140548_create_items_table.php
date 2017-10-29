@@ -16,6 +16,7 @@ class CreateItemsTable extends Migration
         Schema::create('items', function (Blueprint $table) {
             $table->increments('id');
             $table->boolean("isdone")->default("0");//是否完成
+            $table->
             $table->timestamps();
         });
     }

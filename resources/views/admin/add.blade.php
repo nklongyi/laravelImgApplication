@@ -21,7 +21,7 @@
     <!-- Switchery -->
     <link href="{{asset('admin/vendors/switchery/dist/switchery.min.css')}}" rel="stylesheet">
 
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 @endsection
 @section('content')
     <div class="col-md-12 col-sm-12 col-xs-12">
@@ -60,7 +60,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">封面图<span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input id="input-20" type="file" accept="image/*" class="file-loading">
+                            <input id="input-20" type="file" class="file-loading" name="fengmiantu">
                             <input type="hidden" id="imgurl" name="imgurl">
                         </div>
                     </div>
@@ -88,7 +88,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">内容 <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input id="input-44" name="input44[]" type="file" multiple>
+                            <input id="input-44" name="content[]" type="file" multiple class="file-loading">
                         </div>
                     </div>
                     <div class="ln_solid"></div>
@@ -99,7 +99,6 @@
                             <button type="submit" class="btn btn-success">Submit</button>
                         </div>
                     </div>
-
                 </form>
             </div>
         </div>
@@ -112,20 +111,26 @@
     <script>
         $(document).on('ready', function() {
             $("#input-20").fileinput({
+                overwriteInitial: false,
                 previewFileType: "image",
+                uploadUrl: "/admin/img/sigleupload",
                 allowedFileExtensions: ["jpg", "jpeg", "gif", "png"],
-                browseLabel: "Pick Image",
-                browseIcon: "<i class=\"glyphicon glyphicon-picture\"></i> ",
-                removeClass: "btn btn-danger",
-                removeLabel: "Delete",
-                removeIcon: "<i class=\"glyphicon glyphicon-trash\"></i> ",
-                uploadClass: "btn btn-info",
-                uploadLabel: "Upload",
-                uploadIcon: "<i class=\"glyphicon glyphicon-upload\"></i> "
+                maxFileCount: 1,//表示允许同时上传的最大文件个数
+                uploadExtraData: { '_token':'{{csrf_token()}}' }
+            });
+            //异步上传返回结果处理
+            $("#input-20").on("fileuploaded", function (event, data, previewId, index) {
+                var response = data.response;
+                $("#imgurl").val(response);
             });
             $("#input-44").fileinput({
-                uploadUrl: '/file-upload-batch/2',
-                maxFilePreviewSize: 10240
+                uploadUrl: '/admin/img/multiupload',
+                uploadAsync:false,
+                maxFileCount: 30//表示允许同时上传的最大文件个数
+            });
+            $("#input-44").on("filebatchuploadsuccess", function (event, data, previewId, index) {
+                var response = data.response;
+                console.log(response);
             });
         });
     </script>

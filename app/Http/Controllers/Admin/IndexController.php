@@ -13,6 +13,9 @@ class IndexController extends Controller
     }
 
     public function add(){
+        //生成一个item，并将状态设置为“未完成”
+
+        //获取对应的主题id
 
         return view('admin.add');
     }

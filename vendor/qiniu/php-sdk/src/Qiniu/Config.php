@@ -38,7 +38,6 @@ final class Config
         } else {
             $scheme = "http://";
         }
-
         $host = $zone->srcUpHosts[0];
         if ($this->useCdnDomains === true) {
             $host = $zone->cdnUpHosts[0];

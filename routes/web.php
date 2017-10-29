@@ -19,3 +19,8 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin'], function () {
     Route::get('/index','IndexController@index');
     Route::get('/addItem','IndexController@add');
 });
+//公共控制器
+Route::group(['prefix' => 'admin','namespace' => 'Common'], function () {
+    Route::post('/img/sigleupload','ImageController@sigleupload');
+    Route::post('/img/multiupload','ImageController@multiFileUpload');
+});

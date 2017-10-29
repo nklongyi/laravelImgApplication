@@ -11,3 +11,4 @@ npm-debug.log
 yarn-error.log
 .env
 config/filesystems.php
+app/Http/Controllers/Common/qiniu.php
